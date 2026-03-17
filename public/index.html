@@ -7,75 +7,43 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --navy: #f4f6fb;
-    --accent: #00a882;
-    --text: #0d1117;
-    --muted: #5a6478;
-    --border: rgba(0,168,130,0.18);
-    --card: rgba(0,0,0,0.02);
-    --card-hover: rgba(0,168,130,0.05);
-    --grid-line: rgba(0,168,130,0.05);
-    --tag-bg: rgba(0,168,130,0.07);
-    --tag-color: #3d7a68;
-    --tag-border: rgba(0,168,130,0.18);
-    --chip-bg: rgba(0,114,204,0.07);
-    --chip-color: #1a5fa8;
-    --chip-border: rgba(0,114,204,0.18);
-    --nav-bg: rgba(244,246,251,0.92);
-    --toggle-bg: rgba(0,0,0,0.05);
-    --toggle-border: rgba(0,168,130,0.3);
-    --toggle-icon: #00a882;
+    --navy: #f4f6fb; --accent: #00a882; --text: #0d1117; --muted: #5a6478;
+    --border: rgba(0,168,130,0.18); --card: rgba(0,0,0,0.02); --card-hover: rgba(0,168,130,0.05);
+    --grid-line: rgba(0,168,130,0.05); --tag-bg: rgba(0,168,130,0.07); --tag-color: #3d7a68;
+    --tag-border: rgba(0,168,130,0.18); --chip-bg: rgba(0,114,204,0.07); --chip-color: #1a5fa8;
+    --chip-border: rgba(0,114,204,0.18); --nav-bg: rgba(244,246,251,0.92);
+    --toggle-bg: rgba(0,0,0,0.05); --toggle-border: rgba(0,168,130,0.3); --toggle-icon: #00a882;
   }
   [data-theme="dark"] {
-    --navy: #0a0f1e;
-    --accent: #00d4aa;
-    --text: #e8edf5;
-    --muted: #8b9ab5;
-    --border: rgba(0,212,170,0.15);
-    --card: rgba(255,255,255,0.03);
-    --card-hover: rgba(0,212,170,0.06);
-    --grid-line: rgba(0,212,170,0.03);
-    --tag-bg: rgba(0,212,170,0.08);
-    --tag-color: #8b9ab5;
-    --tag-border: rgba(0,212,170,0.15);
-    --chip-bg: rgba(0,153,255,0.08);
-    --chip-color: #6bb5ff;
-    --chip-border: rgba(0,153,255,0.2);
-    --nav-bg: rgba(10,15,30,0.88);
-    --toggle-bg: rgba(255,255,255,0.07);
-    --toggle-border: rgba(0,212,170,0.3);
-    --toggle-icon: #00d4aa;
+    --navy: #0a0f1e; --accent: #00d4aa; --text: #e8edf5; --muted: #8b9ab5;
+    --border: rgba(0,212,170,0.15); --card: rgba(255,255,255,0.03); --card-hover: rgba(0,212,170,0.06);
+    --grid-line: rgba(0,212,170,0.03); --tag-bg: rgba(0,212,170,0.08); --tag-color: #8b9ab5;
+    --tag-border: rgba(0,212,170,0.15); --chip-bg: rgba(0,153,255,0.08); --chip-color: #6bb5ff;
+    --chip-border: rgba(0,153,255,0.2); --nav-bg: rgba(10,15,30,0.88);
+    --toggle-bg: rgba(255,255,255,0.07); --toggle-border: rgba(0,212,170,0.3); --toggle-icon: #00d4aa;
   }
-
   html { scroll-behavior: smooth; }
   body { background: var(--navy); color: var(--text); font-family: 'Syne', sans-serif; line-height: 1.6; overflow-x: hidden; transition: background 0.35s, color 0.35s; }
 
-  /* NAV */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2.5rem; background: var(--nav-bg); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); transition: background 0.35s, border-color 0.35s; }
-  .nav-logo { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--accent); letter-spacing: 0.08em; cursor: pointer; }
+  .nav-logo { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--accent); letter-spacing: 0.08em; }
   .nav-right { display: flex; align-items: center; gap: 2rem; }
   .nav-links { display: flex; gap: 2rem; }
-  .nav-links a { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; cursor: pointer; }
+  .nav-links a { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--accent); }
 
-  /* TOGGLE */
   .theme-toggle { display: flex; align-items: center; gap: 8px; background: var(--toggle-bg); border: 1px solid var(--toggle-border); border-radius: 100px; padding: 5px 14px 5px 10px; cursor: pointer; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--toggle-icon); transition: all 0.2s; user-select: none; letter-spacing: 0.08em; }
   .theme-toggle:hover { opacity: 0.8; }
   .toggle-track { width: 28px; height: 16px; background: var(--accent); border: 1px solid var(--accent); border-radius: 100px; position: relative; transition: background 0.3s, border-color 0.3s; flex-shrink: 0; }
   [data-theme="dark"] .toggle-track { background: var(--toggle-bg); border-color: var(--toggle-border); }
   .toggle-thumb { position: absolute; top: 2px; left: 2px; width: 10px; height: 10px; border-radius: 50%; background: #fff; transition: transform 0.3s, background 0.3s; transform: translateX(12px); }
   [data-theme="dark"] .toggle-thumb { transform: translateX(0); background: var(--toggle-icon); }
-  .lbl-light { display: block; }
-  .lbl-dark { display: none; }
-  [data-theme="dark"] .lbl-light { display: none; }
-  [data-theme="dark"] .lbl-dark { display: block; }
+  .lbl-light { display: block; } .lbl-dark { display: none; }
+  [data-theme="dark"] .lbl-light { display: none; } [data-theme="dark"] .lbl-dark { display: block; }
 
-  /* GRID BG */
   .grid-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px); background-size: 60px 60px; }
 
-  /* HERO */
   .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 8rem 2.5rem 4rem; position: relative; z-index: 1; overflow: hidden; }
   .hero::before { content: ''; position: absolute; top: -30%; right: -15%; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(0,168,130,0.07) 0%, transparent 70%); pointer-events: none; }
   [data-theme="dark"] .hero::before { background: radial-gradient(circle, rgba(0,212,170,0.08) 0%, transparent 70%); }
@@ -93,12 +61,49 @@
   .stat-num { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: var(--accent); line-height: 1; }
   .stat-label { font-size: 12px; color: var(--muted); letter-spacing: 0.08em; margin-top: 4px; }
 
-  /* SECTIONS — all with position:relative and z-index:1 so they sit above .grid-bg */
   .section-wrap { position: relative; z-index: 1; }
   .section-inner { padding: 6rem 2.5rem; max-width: 1100px; margin: 0 auto; }
   .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; }
   .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 80px; }
   .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 3rem; }
+
+  /* CERTIFICATIONS */
+  .cert-grid { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+  .cert-card {
+    display: flex; align-items: center; gap: 1.25rem;
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 1.5rem 2rem; background: var(--card);
+    transition: all 0.25s; position: relative; overflow: hidden;
+    text-decoration: none; color: inherit; flex: 1; min-width: 280px;
+  }
+  .cert-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent); transform: scaleY(0); transform-origin: bottom; transition: transform 0.3s; }
+  .cert-card:hover { background: var(--card-hover); border-color: rgba(0,168,130,0.4); }
+  [data-theme="dark"] .cert-card:hover { border-color: rgba(0,212,170,0.3); }
+  .cert-card:hover::before { transform: scaleY(1); }
+  .cert-badge-wrap {
+    width: 80px; height: 80px; flex-shrink: 0;
+    border-radius: 50%; border: 2px solid var(--border);
+    background: var(--navy); display: flex; align-items: center; justify-content: center;
+    overflow: hidden; transition: border-color 0.35s;
+  }
+  .cert-card:hover .cert-badge-wrap { border-color: var(--accent); }
+  .cert-badge-wrap img { width: 70px; height: 70px; object-fit: contain; }
+  .cert-info { flex: 1; }
+  .cert-name { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--text); margin-bottom: 4px; line-height: 1.2; }
+  .cert-issuer { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.08em; margin-bottom: 8px; }
+  .cert-meta { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+  .cert-status {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 3px 10px; border-radius: 2px;
+    background: rgba(0,168,130,0.1); color: var(--accent); border: 1px solid var(--border);
+  }
+  [data-theme="dark"] .cert-status { background: rgba(0,212,170,0.1); }
+  .cert-status::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  .cert-verify { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.06em; display: flex; align-items: center; gap: 4px; transition: color 0.2s; }
+  .cert-card:hover .cert-verify { color: var(--accent); }
+  .cert-verify::after { content: '↗'; font-size: 10px; }
 
   /* SKILLS */
   .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
@@ -168,6 +173,7 @@
     .project-card { padding: 1.5rem; }
     .contact-strip { padding: 3rem 1.25rem; }
     .contact-info { align-items: flex-start; }
+    .cert-card { min-width: 100%; }
   }
 </style>
 </head>
@@ -175,11 +181,11 @@
 
 <div class="grid-bg"></div>
 
-<!-- NAV — hrefs match the id attributes below exactly -->
 <nav>
   <div class="nav-logo">DevOps-AIDER</div>
   <div class="nav-right">
     <div class="nav-links">
+      <a href="#certifications">Certs</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
@@ -206,6 +212,33 @@
     <div><div class="stat-num">6+</div><div class="stat-label">Years in DevOps</div></div>
     <div><div class="stat-num">5</div><div class="stat-label">Major Projects</div></div>
     <div><div class="stat-num">2</div><div class="stat-label">Cloud Platforms</div></div>
+  </div>
+</div>
+
+<!-- CERTIFICATIONS -->
+<div class="section-wrap" id="certifications">
+  <div class="section-inner">
+    <div class="section-label">Credentials</div>
+    <h2 class="section-title">Certifications</h2>
+    <div class="cert-grid">
+      <a class="cert-card" href="https://www.credly.com/badges/0b751f2e-5a6f-4a5f-8d0a-eb07a8814120/public_url" target="_blank" rel="noopener noreferrer">
+        <div class="cert-badge-wrap">
+          <img
+            src="https://images.credly.com/size/340x340/images/8b8ed108-e77d-4396-ac59-2504583b9d54/cka_from_cncf.png"
+            alt="CKA Badge"
+            onerror="this.style.display='none'; this.parentElement.innerHTML='<svg viewBox=\'0 0 60 60\' width=\'60\' height=\'60\'><circle cx=\'30\' cy=\'30\' r=\'28\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'2\'/><text x=\'30\' y=\'35\' text-anchor=\'middle\' font-size=\'14\' font-weight=\'bold\' fill=\'currentColor\'>CKA</text></svg>'"
+          />
+        </div>
+        <div class="cert-info">
+          <div class="cert-name">Certified Kubernetes Administrator</div>
+          <div class="cert-issuer">The Linux Foundation · CNCF</div>
+          <div class="cert-meta">
+            <span class="cert-status">Verified</span>
+            <span class="cert-verify">Validate on Credly</span>
+          </div>
+        </div>
+      </a>
+    </div>
   </div>
 </div>
 
@@ -376,15 +409,12 @@
     const html = document.documentElement;
     html.setAttribute('data-theme', html.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
   }
-
-  // Smooth scroll with nav offset compensation
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const target = document.querySelector(a.getAttribute('href'));
       if (!target) return;
       e.preventDefault();
-      const offset = 70;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      const top = target.getBoundingClientRect().top + window.scrollY - 70;
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
