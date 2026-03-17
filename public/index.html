@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,35 +9,8 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --navy: #0a0f1e;
-    --navy2: #111827;
-    --navy3: #1a2236;
-    --accent: #00d4aa;
-    --accent2: #0099ff;
-    --text: #e8edf5;
-    --muted: #8b9ab5;
-    --border: rgba(0,212,170,0.15);
-    --card: rgba(255,255,255,0.03);
-    --card-hover: rgba(0,212,170,0.06);
-    --grid-line: rgba(0,212,170,0.03);
-    --tag-bg: rgba(0,212,170,0.08);
-    --tag-color: #8b9ab5;
-    --tag-border: rgba(0,212,170,0.15);
-    --chip-bg: rgba(0,153,255,0.08);
-    --chip-color: #6bb5ff;
-    --chip-border: rgba(0,153,255,0.2);
-    --nav-bg: rgba(10,15,30,0.85);
-    --toggle-bg: rgba(255,255,255,0.07);
-    --toggle-border: rgba(0,212,170,0.3);
-    --toggle-icon: #00d4aa;
-  }
-
-  [data-theme="light"] {
     --navy: #f4f6fb;
-    --navy2: #eaecf4;
-    --navy3: #dde1ef;
     --accent: #00a882;
-    --accent2: #0072cc;
     --text: #0d1117;
     --muted: #5a6478;
     --border: rgba(0,168,130,0.18);
@@ -50,180 +23,135 @@
     --chip-bg: rgba(0,114,204,0.07);
     --chip-color: #1a5fa8;
     --chip-border: rgba(0,114,204,0.18);
-    --nav-bg: rgba(244,246,251,0.9);
+    --nav-bg: rgba(244,246,251,0.92);
     --toggle-bg: rgba(0,0,0,0.05);
     --toggle-border: rgba(0,168,130,0.3);
     --toggle-icon: #00a882;
   }
+  [data-theme="dark"] {
+    --navy: #0a0f1e;
+    --accent: #00d4aa;
+    --text: #e8edf5;
+    --muted: #8b9ab5;
+    --border: rgba(0,212,170,0.15);
+    --card: rgba(255,255,255,0.03);
+    --card-hover: rgba(0,212,170,0.06);
+    --grid-line: rgba(0,212,170,0.03);
+    --tag-bg: rgba(0,212,170,0.08);
+    --tag-color: #8b9ab5;
+    --tag-border: rgba(0,212,170,0.15);
+    --chip-bg: rgba(0,153,255,0.08);
+    --chip-color: #6bb5ff;
+    --chip-border: rgba(0,153,255,0.2);
+    --nav-bg: rgba(10,15,30,0.88);
+    --toggle-bg: rgba(255,255,255,0.07);
+    --toggle-border: rgba(0,212,170,0.3);
+    --toggle-icon: #00d4aa;
+  }
 
   html { scroll-behavior: smooth; }
-  body {
-    background: var(--navy);
-    color: var(--text);
-    font-family: 'Syne', sans-serif;
-    line-height: 1.6;
-    overflow-x: hidden;
-    transition: background 0.35s ease, color 0.35s ease;
-  }
-
-  /* THEME TOGGLE */
-  .theme-toggle {
-    display: flex; align-items: center; gap: 8px;
-    background: var(--toggle-bg);
-    border: 1px solid var(--toggle-border);
-    border-radius: 100px;
-    padding: 5px 14px 5px 10px;
-    cursor: pointer;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--toggle-icon);
-    transition: all 0.2s;
-    user-select: none;
-    letter-spacing: 0.08em;
-  }
-  .theme-toggle:hover { opacity: 0.8; }
-  .theme-toggle .toggle-track {
-    width: 28px; height: 16px;
-    background: var(--toggle-bg);
-    border: 1px solid var(--toggle-border);
-    border-radius: 100px;
-    position: relative;
-    transition: background 0.3s;
-    flex-shrink: 0;
-  }
-  [data-theme="light"] .theme-toggle .toggle-track { background: var(--accent); border-color: var(--accent); }
-  .theme-toggle .toggle-thumb {
-    position: absolute; top: 2px; left: 2px;
-    width: 10px; height: 10px; border-radius: 50%;
-    background: var(--toggle-icon);
-    transition: transform 0.3s, background 0.3s;
-  }
-  [data-theme="light"] .theme-toggle .toggle-thumb { transform: translateX(12px); background: #fff; }
-  .toggle-label-dark { display: block; }
-  .toggle-label-light { display: none; }
-  [data-theme="light"] .toggle-label-dark { display: none; }
-  [data-theme="light"] .toggle-label-light { display: block; }
+  body { background: var(--navy); color: var(--text); font-family: 'Syne', sans-serif; line-height: 1.6; overflow-x: hidden; transition: background 0.35s, color 0.35s; }
 
   /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1rem 2.5rem;
-    background: var(--nav-bg);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    transition: background 0.35s ease, border-color 0.35s ease;
-  }
-  .nav-logo { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--accent); letter-spacing: 0.08em; transition: color 0.35s; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2.5rem; background: var(--nav-bg); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); transition: background 0.35s, border-color 0.35s; }
+  .nav-logo { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--accent); letter-spacing: 0.08em; cursor: pointer; }
   .nav-right { display: flex; align-items: center; gap: 2rem; }
   .nav-links { display: flex; gap: 2rem; }
-  .nav-links a { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-links a { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; cursor: pointer; }
   .nav-links a:hover { color: var(--accent); }
 
-  /* HERO */
-  .hero {
-    min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
-    padding: 8rem 2.5rem 4rem; position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content: ''; position: absolute; top: -30%; right: -15%;
-    width: 700px; height: 700px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(0,212,170,0.08) 0%, transparent 70%);
-    pointer-events: none; transition: opacity 0.35s;
-  }
-  [data-theme="light"] .hero::before { background: radial-gradient(circle, rgba(0,168,130,0.07) 0%, transparent 70%); }
-  .hero::after {
-    content: ''; position: absolute; bottom: -20%; left: -10%;
-    width: 500px; height: 500px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(0,153,255,0.06) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; transition: color 0.35s; }
-  .hero-eyebrow::before { content: ''; display: inline-block; width: 32px; height: 1px; background: var(--accent); transition: background 0.35s; }
-  .hero-name { font-family: 'DM Serif Display', serif; font-size: clamp(4rem, 10vw, 8rem); line-height: 0.95; letter-spacing: -0.02em; color: var(--text); margin-bottom: 1rem; transition: color 0.35s; }
-  .hero-name em { color: var(--accent); font-style: italic; transition: color 0.35s; }
-  .hero-title { font-size: 1.1rem; color: var(--muted); margin-bottom: 2.5rem; max-width: 500px; line-height: 1.7; transition: color 0.35s; }
-  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    padding: 0.75rem 1.75rem; border-radius: 3px;
-    background: var(--accent); color: var(--navy);
-    font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500;
-    letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
-    transition: opacity 0.2s, background 0.35s, color 0.35s; cursor: pointer; border: none;
-  }
-  .btn-primary:hover { opacity: 0.85; }
-  .btn-ghost {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    padding: 0.75rem 1.75rem; border-radius: 3px;
-    border: 1px solid var(--border); color: var(--muted);
-    font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
-    text-decoration: none; transition: all 0.2s; cursor: pointer; background: transparent;
-  }
-  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
-  .hero-stats { display: flex; gap: 3rem; margin-top: 5rem; padding-top: 3rem; border-top: 1px solid var(--border); transition: border-color 0.35s; }
-  .stat-num { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: var(--accent); line-height: 1; transition: color 0.35s; }
-  .stat-label { font-size: 12px; color: var(--muted); letter-spacing: 0.08em; margin-top: 4px; transition: color 0.35s; }
+  /* TOGGLE */
+  .theme-toggle { display: flex; align-items: center; gap: 8px; background: var(--toggle-bg); border: 1px solid var(--toggle-border); border-radius: 100px; padding: 5px 14px 5px 10px; cursor: pointer; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--toggle-icon); transition: all 0.2s; user-select: none; letter-spacing: 0.08em; }
+  .theme-toggle:hover { opacity: 0.8; }
+  .toggle-track { width: 28px; height: 16px; background: var(--accent); border: 1px solid var(--accent); border-radius: 100px; position: relative; transition: background 0.3s, border-color 0.3s; flex-shrink: 0; }
+  [data-theme="dark"] .toggle-track { background: var(--toggle-bg); border-color: var(--toggle-border); }
+  .toggle-thumb { position: absolute; top: 2px; left: 2px; width: 10px; height: 10px; border-radius: 50%; background: #fff; transition: transform 0.3s, background 0.3s; transform: translateX(12px); }
+  [data-theme="dark"] .toggle-thumb { transform: translateX(0); background: var(--toggle-icon); }
+  .lbl-light { display: block; }
+  .lbl-dark { display: none; }
+  [data-theme="dark"] .lbl-light { display: none; }
+  [data-theme="dark"] .lbl-dark { display: block; }
 
-  /* SECTION */
-  section { padding: 6rem 2.5rem; max-width: 1100px; margin: 0 auto; }
-  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; transition: color 0.35s; }
-  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 80px; transition: background 0.35s; }
-  .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 3rem; transition: color 0.35s; }
+  /* GRID BG */
+  .grid-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px); background-size: 60px 60px; }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 8rem 2.5rem 4rem; position: relative; z-index: 1; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -30%; right: -15%; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(0,168,130,0.07) 0%, transparent 70%); pointer-events: none; }
+  [data-theme="dark"] .hero::before { background: radial-gradient(circle, rgba(0,212,170,0.08) 0%, transparent 70%); }
+  .hero-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .hero-eyebrow::before { content: ''; display: inline-block; width: 32px; height: 1px; background: var(--accent); }
+  .hero-name { font-family: 'DM Serif Display', serif; font-size: clamp(4rem, 10vw, 8rem); line-height: 0.95; letter-spacing: -0.02em; color: var(--text); margin-bottom: 1rem; }
+  .hero-name em { color: var(--accent); font-style: italic; }
+  .hero-title { font-size: 1.1rem; color: var(--muted); margin-bottom: 2.5rem; max-width: 500px; line-height: 1.7; }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.75rem; border-radius: 3px; background: var(--accent); color: #fff; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: opacity 0.2s, background 0.35s; }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.75rem; border-radius: 3px; border: 1px solid var(--border); color: var(--muted); font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; background: transparent; transition: all 0.2s; cursor: pointer; }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+  .hero-stats { display: flex; gap: 3rem; margin-top: 5rem; padding-top: 3rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
+  .stat-num { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: var(--accent); line-height: 1; }
+  .stat-label { font-size: 12px; color: var(--muted); letter-spacing: 0.08em; margin-top: 4px; }
+
+  /* SECTIONS — all with position:relative and z-index:1 so they sit above .grid-bg */
+  .section-wrap { position: relative; z-index: 1; }
+  .section-inner { padding: 6rem 2.5rem; max-width: 1100px; margin: 0 auto; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 80px; }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 3rem; }
 
   /* SKILLS */
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); transition: background 0.35s, border-color 0.35s; }
-  .skill-cell { background: var(--navy); padding: 1.5rem; transition: background 0.2s, background-color 0.35s; position: relative; overflow: hidden; }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .skill-cell { background: var(--navy); padding: 1.5rem; transition: background 0.2s; position: relative; overflow: hidden; }
   .skill-cell::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), transparent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
   .skill-cell:hover { background: var(--card-hover); }
   .skill-cell:hover::before { transform: scaleX(1); }
-  .skill-category { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; transition: color 0.35s; }
+  .skill-category { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
   .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .skill-tag { font-size: 12px; padding: 3px 10px; border-radius: 2px; background: var(--tag-bg); color: var(--tag-color); border: 1px solid var(--tag-border); font-family: 'IBM Plex Mono', monospace; transition: all 0.35s; }
+  .skill-tag { font-size: 12px; padding: 3px 10px; border-radius: 2px; background: var(--tag-bg); color: var(--tag-color); border: 1px solid var(--tag-border); font-family: 'IBM Plex Mono', monospace; }
 
   /* PROJECTS */
   .projects-list { display: flex; flex-direction: column; gap: 1.5rem; }
-  .project-card { border: 1px solid var(--border); border-radius: 4px; padding: 2rem 2.5rem; background: var(--card); transition: all 0.25s; cursor: default; position: relative; overflow: hidden; }
-  .project-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent); transform: scaleY(0); transform-origin: bottom; transition: transform 0.3s, background 0.35s; }
-  .project-card:hover { background: var(--card-hover); border-color: var(--border); }
+  .project-card { border: 1px solid var(--border); border-radius: 4px; padding: 2rem 2.5rem; background: var(--card); transition: all 0.25s; position: relative; overflow: hidden; }
+  .project-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent); transform: scaleY(0); transform-origin: bottom; transition: transform 0.3s; }
+  .project-card:hover { background: var(--card-hover); }
   .project-card:hover::before { transform: scaleY(1); }
   .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
-  .project-name { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--text); transition: color 0.35s; }
-  .project-date { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--accent); border: 1px solid var(--border); padding: 4px 12px; border-radius: 2px; transition: all 0.35s; }
-  .project-subtitle { font-size: 13px; color: var(--accent); margin-bottom: 1rem; font-family: 'IBM Plex Mono', monospace; transition: color 0.35s; }
+  .project-name { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--text); }
+  .project-date { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--accent); border: 1px solid var(--border); padding: 4px 12px; border-radius: 2px; }
+  .project-subtitle { font-size: 13px; color: var(--accent); margin-bottom: 1rem; font-family: 'IBM Plex Mono', monospace; }
   .project-bullets { list-style: none; margin-bottom: 1.25rem; }
-  .project-bullets li { font-size: 14px; color: var(--muted); padding: 4px 0 4px 1.25rem; position: relative; line-height: 1.6; transition: color 0.35s; }
-  .project-bullets li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 10px; top: 6px; transition: color 0.35s; }
+  .project-bullets li { font-size: 14px; color: var(--muted); padding: 4px 0 4px 1.25rem; position: relative; line-height: 1.6; }
+  .project-bullets li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 10px; top: 6px; }
   .tech-stack { display: flex; flex-wrap: wrap; gap: 6px; }
-  .tech-chip { font-family: 'IBM Plex Mono', monospace; font-size: 11px; padding: 3px 10px; background: var(--chip-bg); color: var(--chip-color); border: 1px solid var(--chip-border); border-radius: 2px; transition: all 0.35s; }
+  .tech-chip { font-family: 'IBM Plex Mono', monospace; font-size: 11px; padding: 3px 10px; background: var(--chip-bg); color: var(--chip-color); border: 1px solid var(--chip-border); border-radius: 2px; }
 
   /* EXPERIENCE */
   .timeline { position: relative; padding-left: 2rem; }
-  .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: var(--border); transition: background 0.35s; }
+  .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: var(--border); }
   .timeline-item { margin-bottom: 3rem; position: relative; }
-  .timeline-dot { position: absolute; left: -2.4rem; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); border: 2px solid var(--navy); box-shadow: 0 0 0 3px rgba(0,212,170,0.2); transition: all 0.35s; }
-  [data-theme="light"] .timeline-dot { box-shadow: 0 0 0 3px rgba(0,168,130,0.2); }
+  .timeline-dot { position: absolute; left: -2.4rem; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); border: 2px solid var(--navy); box-shadow: 0 0 0 3px rgba(0,168,130,0.2); transition: all 0.35s; }
+  [data-theme="dark"] .timeline-dot { box-shadow: 0 0 0 3px rgba(0,212,170,0.2); }
   .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.25rem; }
-  .exp-role { font-family: 'DM Serif Display', serif; font-size: 1.25rem; color: var(--text); transition: color 0.35s; }
-  .exp-period { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted); padding-top: 4px; transition: color 0.35s; }
-  .exp-company { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--accent); margin-bottom: 0.75rem; letter-spacing: 0.05em; transition: color 0.35s; }
+  .exp-role { font-family: 'DM Serif Display', serif; font-size: 1.25rem; color: var(--text); }
+  .exp-period { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted); padding-top: 4px; }
+  .exp-company { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--accent); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
   .exp-bullets { list-style: none; }
-  .exp-bullets li { font-size: 14px; color: var(--muted); padding: 3px 0 3px 1.25rem; position: relative; line-height: 1.6; transition: color 0.35s; }
-  .exp-bullets li::before { content: '—'; position: absolute; left: 0; color: rgba(0,212,170,0.4); font-size: 12px; transition: color 0.35s; }
-  [data-theme="light"] .exp-bullets li::before { color: rgba(0,168,130,0.5); }
+  .exp-bullets li { font-size: 14px; color: var(--muted); padding: 3px 0 3px 1.25rem; position: relative; line-height: 1.6; }
+  .exp-bullets li::before { content: '—'; position: absolute; left: 0; color: rgba(0,168,130,0.5); font-size: 12px; }
+  [data-theme="dark"] .exp-bullets li::before { color: rgba(0,212,170,0.4); }
 
   /* CONTACT */
-  .contact-strip { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 4rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; max-width: 1100px; margin: 0 auto; transition: border-color 0.35s; }
+  .contact-strip { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 4rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; max-width: 1100px; margin: 0 auto; }
   .contact-text .big { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; }
-  .contact-text .sub { font-size: 14px; color: var(--muted); margin-top: 0.5rem; transition: color 0.35s; }
+  .contact-text .sub { font-size: 14px; color: var(--muted); margin-top: 0.5rem; }
   .contact-info { display: flex; flex-direction: column; gap: 1rem; align-items: flex-end; }
-  .contact-item { display: flex; align-items: center; gap: 0.75rem; color: var(--muted); font-family: 'IBM Plex Mono', monospace; font-size: 13px; transition: color 0.35s; }
-  .contact-icon { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--accent); transition: all 0.35s; }
+  .contact-item { display: flex; align-items: center; gap: 0.75rem; color: var(--muted); font-family: 'IBM Plex Mono', monospace; font-size: 13px; }
+  .contact-icon { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--accent); }
 
-  footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border); font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.1em; transition: all 0.35s; }
-  footer span { color: var(--accent); transition: color 0.35s; }
+  footer { position: relative; z-index: 1; text-align: center; padding: 2rem; border-top: 1px solid var(--border); font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.1em; }
+  footer span { color: var(--accent); }
 
-  /* ANIMATIONS */
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
   .hero-eyebrow { animation: fadeUp 0.6s ease both; }
   .hero-name { animation: fadeUp 0.6s 0.1s ease both; }
@@ -231,16 +159,12 @@
   .hero-cta { animation: fadeUp 0.6s 0.3s ease both; }
   .hero-stats { animation: fadeUp 0.6s 0.4s ease both; }
 
-  .grid-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px); background-size: 60px 60px; transition: background-image 0.35s; }
-  nav, .hero, section, .contact-strip, footer { position: relative; z-index: 1; }
-
   @media (max-width: 600px) {
     nav { padding: 1rem 1.25rem; }
     .nav-links { gap: 1rem; }
     .nav-right { gap: 1rem; }
     .hero { padding: 7rem 1.25rem 3rem; }
-    section { padding: 4rem 1.25rem; }
-    .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+    .section-inner { padding: 4rem 1.25rem; }
     .project-card { padding: 1.5rem; }
     .contact-strip { padding: 3rem 1.25rem; }
     .contact-info { align-items: flex-start; }
@@ -251,8 +175,9 @@
 
 <div class="grid-bg"></div>
 
+<!-- NAV — hrefs match the id attributes below exactly -->
 <nav>
-  <div class="nav-logo">SAJID KHAN</div>
+  <div class="nav-logo">DevOps-AIDER</div>
   <div class="nav-right">
     <div class="nav-links">
       <a href="#skills">Skills</a>
@@ -262,12 +187,13 @@
     </div>
     <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
       <div class="toggle-track"><div class="toggle-thumb"></div></div>
-      <span class="toggle-label-dark">Light</span>
-      <span class="toggle-label-light">Dark</span>
+      <span class="lbl-light">Dark</span>
+      <span class="lbl-dark">Light</span>
     </button>
   </div>
 </nav>
 
+<!-- HERO -->
 <div class="hero">
   <div class="hero-eyebrow">DevOps Architect</div>
   <h1 class="hero-name">Sajid<br><em>Khan</em></h1>
@@ -283,149 +209,161 @@
   </div>
 </div>
 
-<section id="skills">
-  <div class="section-label">Expertise</div>
-  <h2 class="section-title">Technical<br>Skills</h2>
-  <div class="skills-grid">
-    <div class="skill-cell"><div class="skill-category">Cloud Platforms</div><div class="skill-tags"><span class="skill-tag">Azure</span><span class="skill-tag">AWS</span></div></div>
-    <div class="skill-cell"><div class="skill-category">Containerization</div><div class="skill-tags"><span class="skill-tag">Docker</span><span class="skill-tag">ACR</span><span class="skill-tag">ECR</span></div></div>
-    <div class="skill-cell"><div class="skill-category">Orchestration</div><div class="skill-tags"><span class="skill-tag">Kubernetes</span><span class="skill-tag">AKS</span><span class="skill-tag">EKS</span><span class="skill-tag">Docker Compose</span></div></div>
-    <div class="skill-cell"><div class="skill-category">CI/CD & Build</div><div class="skill-tags"><span class="skill-tag">GitHub Actions</span><span class="skill-tag">Azure Pipelines</span><span class="skill-tag">Jenkins</span><span class="skill-tag">Helm</span><span class="skill-tag">Argo CD</span></div></div>
-    <div class="skill-cell"><div class="skill-category">Infrastructure as Code</div><div class="skill-tags"><span class="skill-tag">Terraform</span></div></div>
-    <div class="skill-cell"><div class="skill-category">Scripting</div><div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">Bash</span><span class="skill-tag">PowerShell</span></div></div>
-    <div class="skill-cell"><div class="skill-category">Monitoring</div><div class="skill-tags"><span class="skill-tag">Prometheus</span><span class="skill-tag">Grafana</span><span class="skill-tag">Azure Monitor</span><span class="skill-tag">Datadog</span></div></div>
-    <div class="skill-cell"><div class="skill-category">Logging</div><div class="skill-tags"><span class="skill-tag">Grafana Loki</span><span class="skill-tag">CloudWatch</span><span class="skill-tag">Log Analytics</span></div></div>
-    <div class="skill-cell"><div class="skill-category">Security</div><div class="skill-tags"><span class="skill-tag">Azure Defender</span><span class="skill-tag">Azure Firewall</span><span class="skill-tag">AWS WAF</span><span class="skill-tag">SonarQube</span><span class="skill-tag">Snyk</span><span class="skill-tag">OWASP</span></div></div>
-    <div class="skill-cell"><div class="skill-category">Data Analytics</div><div class="skill-tags"><span class="skill-tag">Databricks</span><span class="skill-tag">ADLS</span><span class="skill-tag">ADF</span></div></div>
-    <div class="skill-cell"><div class="skill-category">Servers / Hosting</div><div class="skill-tags"><span class="skill-tag">Nginx</span><span class="skill-tag">Apache</span><span class="skill-tag">Azure Web App</span><span class="skill-tag">Elastic Beanstalk</span></div></div>
-    <div class="skill-cell"><div class="skill-category">Version Control & DNS</div><div class="skill-tags"><span class="skill-tag">Azure Repos</span><span class="skill-tag">GitHub</span><span class="skill-tag">Cloudflare</span><span class="skill-tag">Azure DNS</span></div></div>
+<!-- SKILLS -->
+<div class="section-wrap" id="skills">
+  <div class="section-inner">
+    <div class="section-label">Expertise</div>
+    <h2 class="section-title">Technical<br>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-cell"><div class="skill-category">Cloud Platforms</div><div class="skill-tags"><span class="skill-tag">Azure</span><span class="skill-tag">AWS</span></div></div>
+      <div class="skill-cell"><div class="skill-category">Containerization</div><div class="skill-tags"><span class="skill-tag">Docker</span><span class="skill-tag">ACR</span><span class="skill-tag">ECR</span></div></div>
+      <div class="skill-cell"><div class="skill-category">Orchestration</div><div class="skill-tags"><span class="skill-tag">Kubernetes</span><span class="skill-tag">AKS</span><span class="skill-tag">EKS</span><span class="skill-tag">Docker Compose</span></div></div>
+      <div class="skill-cell"><div class="skill-category">CI/CD & Build</div><div class="skill-tags"><span class="skill-tag">GitHub Actions</span><span class="skill-tag">Azure Pipelines</span><span class="skill-tag">Jenkins</span><span class="skill-tag">Helm</span><span class="skill-tag">Argo CD</span></div></div>
+      <div class="skill-cell"><div class="skill-category">Infrastructure as Code</div><div class="skill-tags"><span class="skill-tag">Terraform</span></div></div>
+      <div class="skill-cell"><div class="skill-category">Scripting</div><div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">Bash</span><span class="skill-tag">PowerShell</span></div></div>
+      <div class="skill-cell"><div class="skill-category">Monitoring</div><div class="skill-tags"><span class="skill-tag">Prometheus</span><span class="skill-tag">Grafana</span><span class="skill-tag">Azure Monitor</span><span class="skill-tag">Datadog</span></div></div>
+      <div class="skill-cell"><div class="skill-category">Logging</div><div class="skill-tags"><span class="skill-tag">Grafana Loki</span><span class="skill-tag">CloudWatch</span><span class="skill-tag">Log Analytics</span></div></div>
+      <div class="skill-cell"><div class="skill-category">Security</div><div class="skill-tags"><span class="skill-tag">Azure Defender</span><span class="skill-tag">Azure Firewall</span><span class="skill-tag">AWS WAF</span><span class="skill-tag">SonarQube</span><span class="skill-tag">Snyk</span><span class="skill-tag">OWASP</span></div></div>
+      <div class="skill-cell"><div class="skill-category">Data Analytics</div><div class="skill-tags"><span class="skill-tag">Databricks</span><span class="skill-tag">ADLS</span><span class="skill-tag">ADF</span></div></div>
+      <div class="skill-cell"><div class="skill-category">Servers / Hosting</div><div class="skill-tags"><span class="skill-tag">Nginx</span><span class="skill-tag">Apache</span><span class="skill-tag">Azure Web App</span><span class="skill-tag">Elastic Beanstalk</span></div></div>
+      <div class="skill-cell"><div class="skill-category">Version Control & DNS</div><div class="skill-tags"><span class="skill-tag">Azure Repos</span><span class="skill-tag">GitHub</span><span class="skill-tag">Cloudflare</span><span class="skill-tag">Azure DNS</span></div></div>
+    </div>
   </div>
-</section>
+</div>
 
-<section id="projects">
-  <div class="section-label">Selected Work</div>
-  <h2 class="section-title">Projects</h2>
-  <div class="projects-list">
-    <div class="project-card">
-      <div class="project-header"><div class="project-name">Qatar Airways</div><div class="project-date">12/2024 — Present</div></div>
-      <div class="project-subtitle">Management & Administration of Data Platform</div>
-      <ul class="project-bullets">
-        <li>Established and configured a robust data platform to support ETL processes at scale.</li>
-        <li>Developed Terraform scripts to provision and manage Azure infrastructure resources.</li>
-        <li>Implemented and maintained infrastructure deployment pipelines ensuring resource state consistency.</li>
-        <li>Administered the Databricks platform for optimal performance and scalability.</li>
-        <li>Configured monitoring and alerting solutions using Log Analytics and Azure Monitor.</li>
-        <li>Developed ETL deployment pipelines to efficiently schedule and manage ETL jobs.</li>
-      </ul>
-      <div class="tech-stack"><span class="tech-chip">Azure</span><span class="tech-chip">Terraform</span><span class="tech-chip">Azure DevOps</span><span class="tech-chip">ADLS</span><span class="tech-chip">Databricks</span><span class="tech-chip">Alation</span><span class="tech-chip">Monte Carlo</span><span class="tech-chip">Git</span></div>
-    </div>
-    <div class="project-card">
-      <div class="project-header"><div class="project-name">MEd Record</div><div class="project-date">09/2023 — 09/2024</div></div>
-      <div class="project-subtitle">Cloud & DevOps Resources Management — DevOps Lead</div>
-      <ul class="project-bullets">
-        <li>Set up and managed Azure DevOps organization and projects across teams.</li>
-        <li>Build management for Dotnet, Java, and Angular applications via Azure Pipelines.</li>
-        <li>Created and managed Azure cloud resources (Kubernetes, Postgres, VMs) using Terraform IaC.</li>
-        <li>Designed high-level K8s deployment architecture for managing multiple Helm charts.</li>
-        <li>Set up Kube-Prometheus monitoring stack and Loki logging stack for full observability.</li>
-        <li>Deployed private SonarQube server for code quality analysis and DNS automation with LetsEncrypt.</li>
-      </ul>
-      <div class="tech-stack"><span class="tech-chip">Azure</span><span class="tech-chip">AWS</span><span class="tech-chip">AKS</span><span class="tech-chip">EKS</span><span class="tech-chip">Helm</span><span class="tech-chip">Postgres</span><span class="tech-chip">MongoDB</span><span class="tech-chip">Loki</span></div>
-    </div>
-    <div class="project-card">
-      <div class="project-header"><div class="project-name">MEd Record Migration</div><div class="project-date">06/2023 — 08/2023</div></div>
-      <div class="project-subtitle">Azure Resource Migration Across Subscriptions</div>
-      <ul class="project-bullets">
-        <li>Ensured compatibility between source and target environments to prevent issues.</li>
-        <li>Minimized downtime and maintained data integrity throughout the migration process.</li>
-        <li>Migrated EKS → AKS, ECR → ACR, Postgres, MySQL, MongoDB, Key Vault, and DNS zones.</li>
-        <li>Documented the full migration process for audit and future reference purposes.</li>
-      </ul>
-      <div class="tech-stack"><span class="tech-chip">AWS EKS</span><span class="tech-chip">AKS</span><span class="tech-chip">ACR</span><span class="tech-chip">Key Vault</span><span class="tech-chip">Nginx</span></div>
-    </div>
-    <div class="project-card">
-      <div class="project-header"><div class="project-name">FlexiWare AKS Migration</div><div class="project-date">—</div></div>
-      <div class="project-subtitle">Windows Container Migration to Private AKS Cluster</div>
-      <ul class="project-bullets">
-        <li>Set up environment to build and publish Windows-based container images locally.</li>
-        <li>Wrote Dockerfiles and configured a private ACR registry for image management.</li>
-        <li>Deployed a private AKS cluster with Azure Application Gateway and path-based routing.</li>
-        <li>Built CI/CD pipeline to fully automate the build and deployment lifecycle.</li>
-      </ul>
-      <div class="tech-stack"><span class="tech-chip">Azure Pipelines</span><span class="tech-chip">Docker</span><span class="tech-chip">AKS</span><span class="tech-chip">App Gateway</span><span class="tech-chip">ACR</span><span class="tech-chip">RDS</span></div>
+<!-- PROJECTS -->
+<div class="section-wrap" id="projects">
+  <div class="section-inner">
+    <div class="section-label">Selected Work</div>
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-list">
+      <div class="project-card">
+        <div class="project-header"><div class="project-name">Qatar Airways</div><div class="project-date">12/2024 — Present</div></div>
+        <div class="project-subtitle">Management & Administration of Data Platform</div>
+        <ul class="project-bullets">
+          <li>Established and configured a robust data platform to support ETL processes at scale.</li>
+          <li>Developed Terraform scripts to provision and manage Azure infrastructure resources.</li>
+          <li>Implemented and maintained infrastructure deployment pipelines ensuring resource state consistency.</li>
+          <li>Administered the Databricks platform for optimal performance and scalability.</li>
+          <li>Configured monitoring and alerting solutions using Log Analytics and Azure Monitor.</li>
+          <li>Developed ETL deployment pipelines to efficiently schedule and manage ETL jobs.</li>
+        </ul>
+        <div class="tech-stack"><span class="tech-chip">Azure</span><span class="tech-chip">Terraform</span><span class="tech-chip">Azure DevOps</span><span class="tech-chip">ADLS</span><span class="tech-chip">Databricks</span><span class="tech-chip">Alation</span><span class="tech-chip">Monte Carlo</span><span class="tech-chip">Git</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-header"><div class="project-name">MEd Record</div><div class="project-date">09/2023 — 09/2024</div></div>
+        <div class="project-subtitle">Cloud & DevOps Resources Management — DevOps Lead</div>
+        <ul class="project-bullets">
+          <li>Set up and managed Azure DevOps organization and projects across teams.</li>
+          <li>Build management for Dotnet, Java, and Angular applications via Azure Pipelines.</li>
+          <li>Created and managed Azure cloud resources (Kubernetes, Postgres, VMs) using Terraform IaC.</li>
+          <li>Designed high-level K8s deployment architecture for managing multiple Helm charts.</li>
+          <li>Set up Kube-Prometheus monitoring stack and Loki logging stack for full observability.</li>
+          <li>Deployed private SonarQube server for code quality analysis and DNS automation with LetsEncrypt.</li>
+        </ul>
+        <div class="tech-stack"><span class="tech-chip">Azure</span><span class="tech-chip">AWS</span><span class="tech-chip">AKS</span><span class="tech-chip">EKS</span><span class="tech-chip">Helm</span><span class="tech-chip">Postgres</span><span class="tech-chip">MongoDB</span><span class="tech-chip">Loki</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-header"><div class="project-name">MEd Record Migration</div><div class="project-date">06/2023 — 08/2023</div></div>
+        <div class="project-subtitle">Azure Resource Migration Across Subscriptions</div>
+        <ul class="project-bullets">
+          <li>Ensured compatibility between source and target environments to prevent issues.</li>
+          <li>Minimized downtime and maintained data integrity throughout the migration process.</li>
+          <li>Migrated EKS → AKS, ECR → ACR, Postgres, MySQL, MongoDB, Key Vault, and DNS zones.</li>
+          <li>Documented the full migration process for audit and future reference purposes.</li>
+        </ul>
+        <div class="tech-stack"><span class="tech-chip">AWS EKS</span><span class="tech-chip">AKS</span><span class="tech-chip">ACR</span><span class="tech-chip">Key Vault</span><span class="tech-chip">Nginx</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-header"><div class="project-name">FlexiWare AKS Migration</div><div class="project-date">—</div></div>
+        <div class="project-subtitle">Windows Container Migration to Private AKS Cluster</div>
+        <ul class="project-bullets">
+          <li>Set up environment to build and publish Windows-based container images locally.</li>
+          <li>Wrote Dockerfiles and configured a private ACR registry for image management.</li>
+          <li>Deployed a private AKS cluster with Azure Application Gateway and path-based routing.</li>
+          <li>Built CI/CD pipeline to fully automate the build and deployment lifecycle.</li>
+        </ul>
+        <div class="tech-stack"><span class="tech-chip">Azure Pipelines</span><span class="tech-chip">Docker</span><span class="tech-chip">AKS</span><span class="tech-chip">App Gateway</span><span class="tech-chip">ACR</span><span class="tech-chip">RDS</span></div>
+      </div>
     </div>
   </div>
-</section>
+</div>
 
-<section id="experience">
-  <div class="section-label">Career</div>
-  <h2 class="section-title">Work<br>Experience</h2>
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="exp-header"><div class="exp-role">DevOps Architect</div><div class="exp-period">10/2024 — Current</div></div>
-      <div class="exp-company">Canarys Automation</div>
-      <ul class="exp-bullets">
-        <li>Creating and managing AWS and Azure cloud resources using Terraform IaC.</li>
-        <li>Setting up and managing CI/CD pipelines and Azure DevOps resources.</li>
-        <li>Build management for Dotnet and Java applications via Azure Pipelines.</li>
-        <li>Designing Kubernetes cluster architecture for application deployments.</li>
-        <li>Containerizing modern and legacy applications using Docker.</li>
-      </ul>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="exp-header"><div class="exp-role">Senior Technical Consultant</div><div class="exp-period">09/2022 — 10/2024</div></div>
-      <div class="exp-company">Canarys Automation</div>
-      <ul class="exp-bullets">
-        <li>Managed AWS and Azure infrastructure using Terraform IaC.</li>
-        <li>Implemented DevOps processes using Azure DevOps, GitHub, Maven, Docker, and Prometheus-Grafana.</li>
-        <li>Orchestrated Kubernetes objects using both imperative and declarative methodologies.</li>
-        <li>Troubleshot Kubernetes resources and containerized legacy applications.</li>
-      </ul>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="exp-header"><div class="exp-role">TechOps Engineer</div><div class="exp-period">03/2020 — 09/2022</div></div>
-      <div class="exp-company">Thales India Pvt Ltd</div>
-      <ul class="exp-bullets">
-        <li>Managed alerts via Grafana, OP5, and Datadog integrated with PagerDuty.</li>
-        <li>Administered Gemalto business services on IBM physical servers and AWS.</li>
-        <li>Managed AWS services: EC2, RDS, and VPC.</li>
-        <li>Handled Kubernetes cluster resources — Pods, Deployments, ConfigMaps, and more.</li>
-      </ul>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="exp-header"><div class="exp-role">Product Engineer</div><div class="exp-period">09/2019 — 02/2022</div></div>
-      <div class="exp-company">Drishti (Ameyo) Soft Solution</div>
-      <ul class="exp-bullets">
-        <li>Managed Linux-hosted services including FTP, Postgres Database, and Ameyo applications.</li>
-        <li>Handled PostgreSQL maintenance: query optimization, replication, backup/recovery, and DB sync.</li>
-        <li>Participated in change management and release upgrade activities.</li>
-      </ul>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="exp-header"><div class="exp-role">Analyst</div><div class="exp-period">01/2018 — 09/2019</div></div>
-      <div class="exp-company">HCL Technologies</div>
-      <ul class="exp-bullets">
-        <li>Troubleshot issues and managed incident lifecycle per ITIL framework.</li>
-        <li>Met service level agreements and provided timely issue resolution via ServiceNow.</li>
-      </ul>
+<!-- EXPERIENCE -->
+<div class="section-wrap" id="experience">
+  <div class="section-inner">
+    <div class="section-label">Career</div>
+    <h2 class="section-title">Work<br>Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="exp-header"><div class="exp-role">DevOps Architect</div><div class="exp-period">10/2024 — Current</div></div>
+        <div class="exp-company">Canarys Automation</div>
+        <ul class="exp-bullets">
+          <li>Creating and managing AWS and Azure cloud resources using Terraform IaC.</li>
+          <li>Setting up and managing CI/CD pipelines and Azure DevOps resources.</li>
+          <li>Build management for Dotnet and Java applications via Azure Pipelines.</li>
+          <li>Designing Kubernetes cluster architecture for application deployments.</li>
+          <li>Containerizing modern and legacy applications using Docker.</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="exp-header"><div class="exp-role">Senior Technical Consultant</div><div class="exp-period">09/2022 — 10/2024</div></div>
+        <div class="exp-company">Canarys Automation</div>
+        <ul class="exp-bullets">
+          <li>Managed AWS and Azure infrastructure using Terraform IaC.</li>
+          <li>Implemented DevOps processes using Azure DevOps, GitHub, Maven, Docker, and Prometheus-Grafana.</li>
+          <li>Orchestrated Kubernetes objects using both imperative and declarative methodologies.</li>
+          <li>Troubleshot Kubernetes resources and containerized legacy applications.</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="exp-header"><div class="exp-role">TechOps Engineer</div><div class="exp-period">03/2020 — 09/2022</div></div>
+        <div class="exp-company">Thales India Pvt Ltd</div>
+        <ul class="exp-bullets">
+          <li>Managed alerts via Grafana, OP5, and Datadog integrated with PagerDuty.</li>
+          <li>Administered Gemalto business services on IBM physical servers and AWS.</li>
+          <li>Managed AWS services: EC2, RDS, and VPC.</li>
+          <li>Handled Kubernetes cluster resources — Pods, Deployments, ConfigMaps, and more.</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="exp-header"><div class="exp-role">Product Engineer</div><div class="exp-period">09/2019 — 02/2022</div></div>
+        <div class="exp-company">Drishti (Ameyo) Soft Solution</div>
+        <ul class="exp-bullets">
+          <li>Managed Linux-hosted services including FTP, Postgres Database, and Ameyo applications.</li>
+          <li>Handled PostgreSQL maintenance: query optimization, replication, backup/recovery, and DB sync.</li>
+          <li>Participated in change management and release upgrade activities.</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="exp-header"><div class="exp-role">Analyst</div><div class="exp-period">01/2018 — 09/2019</div></div>
+        <div class="exp-company">HCL Technologies</div>
+        <ul class="exp-bullets">
+          <li>Troubleshot issues and managed incident lifecycle per ITIL framework.</li>
+          <li>Met service level agreements and provided timely issue resolution via ServiceNow.</li>
+        </ul>
+      </div>
     </div>
   </div>
-</section>
+</div>
 
-<div class="contact-strip" id="contact">
-  <div class="contact-text">
-    <div class="big">Let's build<br><em style="color:var(--accent);font-family:'DM Serif Display',serif;">something great.</em></div>
-    <div class="sub">Open to new opportunities and collaborations.</div>
-  </div>
-  <div class="contact-info">
-    <div class="contact-item"><div class="contact-icon">✆</div>+91 9953786728</div>
-    <div class="contact-item"><div class="contact-icon">@</div>sajid.khan274@gmail.com</div>
-    <div class="contact-item"><div class="contact-icon">⌘</div>India</div>
+<!-- CONTACT -->
+<div class="section-wrap" id="contact">
+  <div class="contact-strip">
+    <div class="contact-text">
+      <div class="big">Let's build<br><em style="color:var(--accent);font-family:'DM Serif Display',serif;">something great.</em></div>
+      <div class="sub">Open to new opportunities and collaborations.</div>
+    </div>
+    <div class="contact-info">
+      <div class="contact-item"><div class="contact-icon">✆</div>+91 9953786728</div>
+      <div class="contact-item"><div class="contact-icon">@</div>sajid.khan274@gmail.com</div>
+      <div class="contact-item"><div class="contact-icon">⌘</div>India</div>
+    </div>
   </div>
 </div>
 
@@ -436,9 +374,20 @@
 <script>
   function toggleTheme() {
     const html = document.documentElement;
-    const current = html.getAttribute('data-theme');
-    html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    html.setAttribute('data-theme', html.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
   }
+
+  // Smooth scroll with nav offset compensation
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      const offset = 70;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
 </script>
 </body>
 </html>
